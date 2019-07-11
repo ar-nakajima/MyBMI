@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+    <TextView
+            android:text="身長と体重を入力してください"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/height"
+            android:layout_marginBottom="8dp" app:layout_constraintHorizontal_bias="0.515"
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/headerFragment"/>
+    <TextView
+            android:text="cm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/height"
+            app:layout_constraintStart_toEndOf="@+id/height" android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <TextView
+            android:text="体重"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/TextView4"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="@+id/weight" app:layout_constraintEnd_toStartOf="@+id/weight"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.662"/>
+    <TextView
+            android:text="kg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView5"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="@+id/weight" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="104dp"
+    />
+    <TextView
+            android:text="あなたのBMIは"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            app:layout_constraintEnd_toStartOf="@+id/text_BMI_view"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="@+id/text_BMI_view"
+            app:layout_constraintHorizontal_bias="0.772" android:layout_marginBottom="8dp"/>
+    <TextView
+            android:text="でした。"
+            android:layout_width="64dp"
+            android:layout_height="23dp"
+            android:id="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="52dp" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toTopOf="@+id/text_BMI_view"/>
+    <Button
+            android:text="BMIを計算する"
+            android:layout_width="323dp"
+            android:layout_height="48dp"
+            android:id="@+id/button_exec_calc"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:bufferType="spannable"
+            android:textColorLink="@android:color/system_notification_accent_color"
+            android:textColorHighlight="@android:color/background_dark"
+            android:background="#4792b3"
+            app:layout_constraintHorizontal_bias="0.388" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/divider" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/weight"/>
+
+
+    <EditText
+            android:layout_width="146dp"
+            android:layout_height="54dp"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/height"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+
+            android:layout_marginTop="36dp"/>
+    <EditText
+            android:layout_width="144dp"
+            android:layout_height="55dp"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/weight"
+            app:layout_constraintTop_toBottomOf="@+id/height"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.513"
+            android:layout_marginTop="24dp"
+
+    />
+    <TextView
+            android:text="身長"
+            android:layout_width="37dp"
+            android:layout_height="23dp"
+            android:id="@+id/textView2"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="@+id/height" app:layout_constraintEnd_toStartOf="@+id/height"
+            android:layout_marginEnd="12dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.75"/>
+    <EditText
+            android:layout_width="97dp"
+            android:layout_height="55dp"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/text_BMI_view"
+            app:layout_constraintEnd_toStartOf="@+id/textView7"
+            android:layout_marginTop="52dp"
+            app:layout_constraintTop_toBottomOf="@+id/button_exec_calc" android:layout_marginEnd="40dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/memo"
+            app:layout_constraintVertical_bias="0.853"/>
+    <ImageButton
+            android:layout_width="195dp"
+            android:layout_height="43dp" app:srcCompat="@drawable/add_bmidata"
+            android:id="@+id/addbmidata"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+    <ImageButton
+            android:layout_width="193dp"
+            android:layout_height="45dp" app:srcCompat="@drawable/show_bmi_data"
+            android:id="@+id/history"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+    />
+    <Button
+            android:text="保存"
+            android:background="#368db3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/save"
+            android:layout_marginBottom="12dp" app:layout_constraintBottom_toTopOf="@+id/history"
+            android:layout_marginEnd="88dp" app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteButton" android:text="削除" app:layout_constraintEnd_toStartOf="@+id/save"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintHorizontal_bias="0.648"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintVertical_bias="0.8" app:layout_constraintBottom_toTopOf="@+id/addbmidata"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/memo"/>
+    <!--<TextView-->
+    <!--android:text="TextView"-->
+    <!--android:layout_width="336dp"-->
+    <!--android:layout_height="76dp"-->
+    <!--android:id="@+id/memo" android:layout_marginBottom="8dp"-->
+    <!--app:layout_constraintBottom_toTopOf="@+id/save" android:layout_marginTop="8dp"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/resultBMI" app:layout_constraintStart_toStartOf="parent"-->
+    <!--android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"-->
+    <!--android:hint="MEMO" app:layout_constraintHorizontal_bias="0.542"-->
+    <!--app:layout_constraintVertical_bias="0.477"/>-->
+
+    <View
+            android:id="@+id/divider"
+            android:layout_width="395dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"
+            tools:layout_editor_absoluteY="380dp"/>
+    <EditText
+            android:layout_width="400dp"
+            android:layout_height="118dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/memo"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="1.0"
+            android:hint="MEMO"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/save"/>
+    <fragment
+            android:layout_width="386dp"
+            android:layout_height="25dp" android:name="com.example.mybmi.HeaderFragment"
+            android:id="@+id/headerFragment" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/fragment_header"
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>
