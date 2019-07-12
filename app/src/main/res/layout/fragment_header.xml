@@ -4,4 +4,14 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   tools:context=".HeaderFragment" android:id="@+id/frameLayout"/>
+                                                   tools:context=".fragment.HeaderFragment"
+                                                   android:id="@+id/frameLayout">
+    <TextView
+            android:text="headerが入るはず"
+            android:layout_width="226dp"
+            android:layout_height="27dp"
+            android:id="@+id/headerFragment" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
+            android:layout_marginStart="92dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="93dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

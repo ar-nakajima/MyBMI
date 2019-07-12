@@ -1,4 +1,4 @@
-package com.example.mybmi
+package com.example.mybmi.fragment
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -31,9 +31,6 @@ class ErrorDialog : DialogFragment() {
         dismiss()
     }
 
-
-
-//
 //    fun show(mng: FragmentManager, alert: String) {
 //        alertText.text = alert
 //    }

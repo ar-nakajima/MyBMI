@@ -2,8 +2,33 @@ package com.example.mybmi
 
 import android.content.SharedPreferences
 import android.util.Log
+import com.example.mybmi.entity.ItemsOfBMI
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+/*
+SharedPreferencesとは情報をAndroidデバイス内に保存する仕組みです.
+、キー・バリュー形式で1対1で保存されるだけ.保存できるデータの型はString, int, float, long, boolean, Set<String>です。
+1.SharedPreferenceのインスタンスを生成します
+SharedPreferences pr = getSharedPreferences("DATA", Context.MODE_PRIVATE);
+1つめの引数は生成する設定ファイルのキー（つまりファイル名のようなもの）です。これはアプリ内で固有のものである必要があります。
+2つめの引数はこの設定ファイルが自分のアプリ内のみからアクセス可能か、他のアプリからも読み書きが出来るかを設定する定数です
+
+2. データを書き込みます
+SharedPreferences.Editor editor = preferences.edit();
+editor.putInt("HEIGHT", 100);
+editor.putBoolean("MARRIED", true);
+editor.apply();
+
+3. データを読み込みます
+SharedPreferences preferences = getSharedPreferences("DATA", Context.MODE_PRIVATE);
+int height = preferences.getInt("HEIGHT", 150);
+1つめの引数は1. で指定した設定ファイルのキー、
+2つめの引数はもしそのキーに値が存在しないときに代入する初期値です。
+
+一般的にはSharedPreferencesにアクセスを行うクラスを作ったりすると思います。
+ */
+
+
 
 const val KEY_ITEMS_LIST = "KEY_ITEMS_LIST"
 
