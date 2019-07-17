@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.example.mybmi.R
 
 class items : Fragment() {
-
+//これなんで作ったんだっけ
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

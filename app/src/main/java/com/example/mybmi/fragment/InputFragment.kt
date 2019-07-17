@@ -21,21 +21,17 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class InputFragment : Fragment() {
-
+//フラグメントが初めてUIを描画するタイミングで呼びだされる
     override fun onCreateView(
+//    inflateメソッドでレイアウトXMLからビューを作成する
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_input, container, false)
         val pref = PreferenceManager.getDefaultSharedPreferences(activity)
-/*
-/** フラグメント内では、直接（idで）Viewが取得できないためfindViewByIdを使用する */
-val button = view.findViewById<Button>(R.id.使用したいViewのid)
-button?.setOnClickListener {
-  //ボタン押下時処理
-}
- */
+
         // 計算ボタン押下時＊＊＊＊
+    /** フラグメント内では、直接（idで）Viewが取得できないためfindViewByIdを使用する */
         val calcButton = view?.findViewById<Button>(R.id.calcButton)
 
         calcButton?.setOnClickListener {
