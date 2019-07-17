@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mybmi.entity.ItemsOfBMI
 import com.example.mybmi.R
-//import com.example.mybmi.createDataList
 import com.example.mybmi.view.ViewAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_history.*

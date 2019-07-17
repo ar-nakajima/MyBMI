@@ -20,22 +20,25 @@ import java.lang.String
 import java.text.SimpleDateFormat
 import java.util.*
 
-@Suppress("UNREACHABLE_CODE")
 class InputFragment : Fragment() {
 
-    @SuppressLint("SimpleDateFormat")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_input, container, false)
-
+        val view = inflater.inflate(R.layout.fragment_input, container, false)
         val pref = PreferenceManager.getDefaultSharedPreferences(activity)
-
+/*
+/** フラグメント内では、直接（idで）Viewが取得できないためfindViewByIdを使用する */
+val button = view.findViewById<Button>(R.id.使用したいViewのid)
+button?.setOnClickListener {
+  //ボタン押下時処理
+}
+ */
         // 計算ボタン押下時＊＊＊＊
-        calcButton.setOnClickListener {
+        val calcButton = view?.findViewById<Button>(R.id.calcButton)
+
+        calcButton?.setOnClickListener {
             /* 日付の取得 */
             val sdf = SimpleDateFormat("yyyyMMdd")
             val id = sdf.format(Date()).toString()
@@ -69,11 +72,13 @@ class InputFragment : Fragment() {
                 dao.save(items)
             }
             dao.flush()
+//            return@setOnClickListener
         }
 
 
         // 保存ボタン押下時＊＊＊＊＊
-        saveButton.setOnClickListener {
+        val saveButton = view?.findViewById<View>(R.id.saveButton)
+        saveButton?.setOnClickListener {
             /* 日付の取得 */
             val sdf = SimpleDateFormat("yyyyMMdd")
             val id = sdf.format(Date()).toString()
@@ -105,9 +110,11 @@ class InputFragment : Fragment() {
                 dao.save(items)
             }
             dao.flush()
-
+//            return@setOnClickListener
         }
 
+//        リターンすればよい！？？
+        return view
     }
 
     //    BMI計算メソッド

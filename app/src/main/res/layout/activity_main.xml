@@ -8,32 +8,30 @@
 
     <!-- TODO: Update blank fragment layout -->
     <fragment
-            android:layout_width="380dp"
-            android:layout_height="48dp" android:name="com.example.mybmi.fragment.HeaderFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:name="com.example.mybmi.fragment.HeaderFragment"
             android:id="@+id/headerFragmet"
             tools:layout="@layout/fragment_header"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/inputFragment" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent"/>
-    <fragment
-            android:layout_width="362dp"
-            android:layout_height="49dp" android:name="com.example.mybmi.fragment.FooterFragment"
-            android:id="@+id/headerFragment"
-            tools:layout="@layout/fragment_footer"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
-    <fragment
-            android:layout_width="396dp"
-            android:layout_height="586dp" android:name="com.example.mybmi.fragment.InputFragment"
-            android:id="@+id/inputFragment"
-            tools:layout="@layout/fragment_input"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginTop="17dp"
-            app:layout_constraintTop_toBottomOf="@+id/headerFragmet" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="7dp" android:layout_marginBottom="21dp"
-            app:layout_constraintBottom_toTopOf="@+id/headerFragment"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+    />
+    <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:name="com.example.mybmi.fragment.FooterFragment"
+            android:id="@+id/footerFragment"
+            tools:layout="@layout/fragment_footer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+    />
+    <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/container" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/headerFragmet" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/footerFragment" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

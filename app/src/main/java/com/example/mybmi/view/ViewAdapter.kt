@@ -10,7 +10,7 @@ ViewHolderを生成したりに生成したViewHolderにViewModelをセットし
 
 onCreateViewHolder()でlist_itemのviewを作ってそれを元に先ほどのViewHolderを生成しreturnします。
 
-onBindViewHolder()ではpositionをListのindexとして、ViewHolderに値をセットします。
+
 よく考えたらここでViewHolderにRowModelを渡してあげてもいいかもしれません。
 また、今回はここでクリックリスナーもセットしています。リスナーについては公式の例をまだ見つけられてないので何が正しいのかあんまわかっていませんがとりあえずこれが楽だと思いました。
  */
@@ -26,12 +26,14 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder as ViewHolder1
 
 class ViewAdapter(private val list: List<ItemsOfBMI>, private val listener: ListListener) : RecyclerView.Adapter<ViewHolder>() {
 
+//    テーブルのセルを作成
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         Log.d("Adapter", "onCreateViewHolder")
         val rowView: View = LayoutInflater.from(parent.context).inflate(R.layout.items_history, parent, false)
         return ViewHolder(rowView)
     }
 
+//   値をセット（ positionをListのindexとして、ViewHolderに）
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d("Adapter", "onBindViewHolder")
         holder.heightView.text = list[position].height

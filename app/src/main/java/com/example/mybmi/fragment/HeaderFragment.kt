@@ -20,7 +20,7 @@ class HeaderFragment : Fragment() {
     }
 //    引数に指定した文字列を設定するメソッド
     fun setHeaderFragment(header: String) {
-        headerFragment.text = header
+        footerFragment.text = header
     }
 
 }

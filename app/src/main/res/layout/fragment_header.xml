@@ -10,7 +10,7 @@
             android:text="headerが入るはず"
             android:layout_width="226dp"
             android:layout_height="27dp"
-            android:id="@+id/headerFragment" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/footerFragment" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
             android:layout_marginStart="92dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="93dp"/>
