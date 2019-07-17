@@ -22,9 +22,8 @@ class HistoryFragment : Fragment() {
     //フラグメントが初めてUIを描画するタイミングで呼びだされる
     override fun onCreateView(
         /*onCreateView()は,
-このFragmentのメインコンテンツとなるViewを生成して返す必要があるライフサイクルイベントです。
-ここではViewを生成して返すだけにとどめ、Viewの初期化はonViewCreated()で行います。
-このメソッドにもsavedInstanceStateでFragmentの状態が渡されてきますが、ここでも復元は行いません
+このFragmentのメインコンテンツとなるViewを生成して返す必要があるライフサイクルイベント
+ここではViewを生成して返すだけにとどめ、Viewの初期化はonViewCreated()で。
  */
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,49 +40,51 @@ class HistoryFragment : Fragment() {
         Log.d("lifeCycle", "りれきひょうじ")
 
         val recyclerView = recyclerView
-        val adapter = ViewAdapter(createDataList(), object : ViewAdapter.ListListener {
+//       createList()メソッドで データを取得してadapterに渡してる！
+        val adapter = ViewAdapter(createList(), object : ViewAdapter.ListListener {
             override fun onClickRow(tappedView: View, items: ItemsOfBMI) {
                 this@HistoryFragment.onClickRow(tappedView, items)
             }
-        })
-
+        }
+        )
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
     }
 
-//    このフラグメント内でデータを取得して、adapterにセットして、holderに保持させて？
+//    テストデータ＊＊＊＊＊＊＊＊＊
+    //    このフラグメント内でデータを取得して、adapterにセットして、holderに保持させて？
 //    データgetってそもそも、沢野さんのDAOを利用すればいけるのでは？json形式だし、sharedのなかだし。
-//    テストメソッド
     private fun createDataList(): List<ItemsOfBMI> {
-//    とりあえずこれおいて、、
 
         val dataList = mutableListOf<ItemsOfBMI>()
+
 //    val count = ViewAdapter()のgetIntCountを使うのでは？
-//    alsoってなに？
-        for (i in 0..49) {
+
+        for (i in 0..5) {
             var data: ItemsOfBMI = ItemsOfBMI().also {
-
-                it.height = "身長" + i + "こめだよ"
-                it.weight = "体重" + i + "個目だよ"
-
+                it.height = "" + i + "こめ"
+                it.weight = "" + i + "こめ"
             }
             dataList.add(data)
         }
         return dataList
     }
+//＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊テスト
 
-    private fun dataList(): List<ItemsOfBMI> {
+    private fun createList(): List<ItemsOfBMI> {
         val pref = PreferenceManager.getDefaultSharedPreferences(activity)
-
+//        val count = ViewAdapter(l！！！ist, listener =).getIntCo
+//        val dataList = mutableListOf<ItemsOfBMI>()
         var dao = Dao(pref)
-
-        return   dao.findAll().toList()
+        return dao.findAll().toList()
     }
+
 
     fun onClickRow(tappedView: View, rowModel: ItemsOfBMI) {
         Snackbar.make(tappedView, "Replace with your own action tapped ${rowModel.height}", Snackbar.LENGTH_LONG)
             .setAction("Action", null).show()
     }
+
 
 }

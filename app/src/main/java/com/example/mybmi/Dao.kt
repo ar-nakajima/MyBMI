@@ -26,9 +26,8 @@ int height = preferences.getInt("HEIGHT", 150);
 2つめの引数はもしそのキーに値が存在しないときに代入する初期値です。
 
 一般的にはSharedPreferencesにアクセスを行うクラスを作ったりすると思います。
+沢野さんにおしえていただきました！！！！！！！！！！！
  */
-
-
 
 const val KEY_ITEMS_LIST = "KEY_ITEMS_LIST"
 

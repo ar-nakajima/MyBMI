@@ -1,7 +1,5 @@
 package com.example.mybmi.fragment
 
-
-import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -14,7 +12,6 @@ import android.widget.Button
 import com.example.mybmi.Dao
 import com.example.mybmi.R
 import com.example.mybmi.entity.ItemsOfBMI
-//import com.example.mybmi.calcBmi
 import kotlinx.android.synthetic.main.fragment_input.*
 import java.lang.String
 import java.text.SimpleDateFormat
