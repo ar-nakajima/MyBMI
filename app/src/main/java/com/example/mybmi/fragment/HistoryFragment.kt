@@ -32,7 +32,6 @@ class HistoryFragment : Fragment() {
         // レイアウトXMLからビューを作成する
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
-    //以下https://qiita.com/saiki-ii/items/78ed73134784f3e5db7e引用
 
     //    このFragmentのViewが生成された後に呼び出されます。Viewの初期化とFragmentの状態の復元はここで行うことを推奨します。
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,15 +51,31 @@ class HistoryFragment : Fragment() {
         recyclerView.adapter = adapter
     }
 
-//    テストデータ＊＊＊＊＊＊＊＊＊
+
+    private fun createList(): List<ItemsOfBMI> {
+        val pref = PreferenceManager.getDefaultSharedPreferences(activity)
+//        val count = ViewAdapter(l！！！ist, listener =).getIntCo
+//        val dataList = mutableListOf<ItemsOfBMI>()
+        var dao = Dao(pref)
+//        return dao.findAll().toList()
+        return dao.findAll()
+    }
+
+
+    fun onClickRow(tappedView: View, rowModel: ItemsOfBMI) {
+        Snackbar.make(tappedView, "Replace with your own action tapped ${rowModel.height}", Snackbar.LENGTH_LONG)
+            .setAction("Action", null).show()
+    }
+
+
+
+
+
+    //    テスト＊＊＊＊＊＊＊＊＊
     //    このフラグメント内でデータを取得して、adapterにセットして、holderに保持させて？
-//    データgetってそもそも、沢野さんのDAOを利用すればいけるのでは？json形式だし、sharedのなかだし。
     private fun createDataList(): List<ItemsOfBMI> {
 
         val dataList = mutableListOf<ItemsOfBMI>()
-
-//    val count = ViewAdapter()のgetIntCountを使うのでは？
-
         for (i in 0..5) {
             var data: ItemsOfBMI = ItemsOfBMI().also {
                 it.height = "" + i + "こめ"
@@ -71,20 +86,4 @@ class HistoryFragment : Fragment() {
         return dataList
     }
 //＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊テスト
-
-    private fun createList(): List<ItemsOfBMI> {
-        val pref = PreferenceManager.getDefaultSharedPreferences(activity)
-//        val count = ViewAdapter(l！！！ist, listener =).getIntCo
-//        val dataList = mutableListOf<ItemsOfBMI>()
-        var dao = Dao(pref)
-        return dao.findAll().toList()
-    }
-
-
-    fun onClickRow(tappedView: View, rowModel: ItemsOfBMI) {
-        Snackbar.make(tappedView, "Replace with your own action tapped ${rowModel.height}", Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show()
-    }
-
-
 }

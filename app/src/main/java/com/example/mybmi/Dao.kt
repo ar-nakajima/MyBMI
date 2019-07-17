@@ -53,9 +53,15 @@ class Dao(sharedPreferences: SharedPreferences)  {
         return true
     }
 
-     fun findAll(): MutableSet<ItemsOfBMI> {
-        // ここでNULLチェックはなし
-        return this.itemsList
+//     fun findAll(): MutableSet<ItemsOfBMI> {
+//        return this.itemsList.sortedBy { it.id }
+//    }
+
+//Kotlin の List や Set はあくまで「読み取り専用」であり、「イミュータブル」ではないけど、取得したらあとは読み取るだけだから
+//    問題ないよね！
+    fun findAll(): List<ItemsOfBMI> {
+        return this.itemsList.toList().sortedBy { it.id }
+//           itemsList = itemsList.sorted(it.id)
     }
 
      fun findById(id: String): ItemsOfBMI? {

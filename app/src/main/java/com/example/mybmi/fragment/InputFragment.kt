@@ -30,7 +30,6 @@ class InputFragment : Fragment() {
         // 計算ボタン押下時＊＊＊＊
     /** フラグメント内では、直接（idで）Viewが取得できないためfindViewByIdを使用する */
         val calcButton = view?.findViewById<Button>(R.id.calcButton)
-
         calcButton?.setOnClickListener {
             /* 日付の取得 */
             val sdf = SimpleDateFormat("yyyyMMdd")
@@ -105,6 +104,24 @@ class InputFragment : Fragment() {
             dao.flush()
 //            return@setOnClickListener
         }
+
+    // 削除ボタン押下時＊＊＊＊
+    val deleteButton = view?.findViewById<Button>(R.id.deleteButton)
+    deleteButton?.setOnClickListener {
+        /* 日付の取得 */
+        val sdf = SimpleDateFormat("yyyyMMdd")
+        val id = sdf.format(Date()).toString()
+
+        var dao = Dao(pref)
+        dao.delete(id)
+
+//        きえないよ
+
+    }
+
+
+
+
 
 //        リターンすればよい！？？
         return view
