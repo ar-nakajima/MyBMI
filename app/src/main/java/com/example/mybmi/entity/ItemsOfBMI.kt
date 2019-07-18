@@ -5,38 +5,25 @@ import java.util.*
 //JSONのプロパティに対応するdata classを作る
 //    classの定義にdataという修飾子を付けることで、hashCodeやequals, toStringなどプロパティ関連の各種メソッドを自動で作ってくれます
 data class ItemsOfBMI(
+//    日付
     val id: String = "",
+//    身長
     var height: String = "",
+//    体重
     var weight: String= "",
+//  BMI
     val bmi: String= "",
+//    メモ
     val memo: String?= ""
-)
+) {
+    fun getMonth(): Int {
+        return this.id.substring(4, 6).toInt()
+    }
 
+    fun getDate() : Int {
+        return  this.id.substring(6,8).toInt()
 
-//＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊ちょ全然わかんない。これどこにつくればいいの？
-//ファイルわけするの？でもここでshaerdとかやりとりするよね？そしたらここで判別するしないのでは？
-//RecyclerAdapterでの判定で使用するenum
-enum class RecyclerType(val int: Int){
-    SECTION(0),
-    BODY(1);
-
-    companion object {
-        // Intからenumへの変換
-        fun fromInt(int: Int): RecyclerType{
-            return values().firstOrNull { it.int == int }
-                ?: RecyclerType.BODY
-        }
     }
 }
-////1. リストで表示する Enum クラスを作成する
-//enum class ListItem(val title: String) {
-//    HeaderFruits(title = "果物"),
-//    Apple(title = "りんご"),
-//    Orange(title = "オレンジ"),
-//    HeaderVegetables(title = "野菜"),
-//    Carrot(title = "人参"),
-//    Onion(title = "玉ねぎ"),
-//    HeaderDrinks(title = "飲み物"),
-//    Milk(title = "牛乳"),
-//    Water(title = "水")
-//}
+
+

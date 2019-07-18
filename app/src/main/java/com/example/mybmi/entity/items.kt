@@ -15,7 +15,7 @@ class items : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_items, container, false)
+        return inflater.inflate(R.layout.recycler_item_view, container, false)
     }
 
 
