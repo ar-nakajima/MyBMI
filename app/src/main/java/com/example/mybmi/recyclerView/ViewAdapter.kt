@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder as ViewHolder1
 //ViewHolderを生成したりに生成したViewHolderにViewModelをセットしたりする。
 //一つのListに対して一つ存在する。
 
-class ViewAdapter(private val state: RecyclerState,val item: ItemsOfBMI,private val list: List<ItemsOfBMI>) :
+
+//enumクラス（レイアウト判断）と、
+class ViewAdapter(private val list: List<RecyclerState>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -45,21 +47,22 @@ class ViewAdapter(private val state: RecyclerState,val item: ItemsOfBMI,private 
         //Enum で定義した各アイテム毎に行いたいアクションを定義します。
 
 //            ＊＊＊＊＊
-        val item = item
+//        val item = item
+
         when (holder) {
             is ViewHolder -> {
                 //BODY
-                holder.dateView.text = item.id
-                holder.heightView.text = item.height
-                holder.weightView.text = item.weight
-                holder.bmiView.text = item.bmi
-                holder.memoView.text = item.memo
+                holder.dateView.text = list[position].item.id
+                holder.heightView.text = list[position].item.height
+                holder.weightView.text = list[position].item.weight
+                holder.bmiView.text = list[position].item.bmi
+                holder.memoView.text = list[position].item.memo
             }
 
             is SectionViewHolder -> {
                 // SECTION
-                holder.monthView.text = item.getDate().toString()
-//                viewHolder.update(states[position])
+//                holder.monthView.text = list[position].getDate().toString()
+////                viewHolder.update(states[position])
             }
         }
 
@@ -68,7 +71,7 @@ class ViewAdapter(private val state: RecyclerState,val item: ItemsOfBMI,private 
 
     //ヘッダー用かリストアイテム用のレイアウトを返すか判別する為の viewType を返却するように設定します。
     override fun getItemViewType(position: Int): Int {
-        return state.type.int
+        return list[position].type.int
     }
 
 

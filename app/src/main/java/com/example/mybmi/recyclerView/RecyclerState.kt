@@ -9,13 +9,7 @@ import com.example.mybmi.entity.ItemsOfBMI
 //
 
 // RecyclerViewの表示タイプを保存するクラス
-data class RecyclerState(val rowType: RecyclerType , val itemList: List<ItemsOfBMI>) {
-
-    // RcyclerAdapterにて追加するレコードのタイプ
-    var type: RecyclerType = RecyclerType.BODY
-    var item: RecyclerType = RecyclerType.SECTION
-
-}
+data class RecyclerState(val type: RecyclerType , val item: ItemsOfBMI)
 
 
 enum class RecyclerType (val int: Int){
@@ -27,7 +21,7 @@ enum class RecyclerType (val int: Int){
         // Intからenumへの変換
         fun fromInt(int: Int): RecyclerType{
             return values().firstOrNull { it.int == int }
-                ?: RecyclerType.BODY
+                ?: BODY
         }
     }
 

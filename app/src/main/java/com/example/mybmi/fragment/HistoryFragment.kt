@@ -4,17 +4,17 @@ package com.example.mybmi.fragment
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mybmi.Dao
-import com.example.mybmi.entity.ItemsOfBMI
 import com.example.mybmi.R
-import com.example.mybmi.entity.items
+import com.example.mybmi.entity.ItemsOfBMI
+import com.example.mybmi.recyclerView.RecyclerState
+import com.example.mybmi.recyclerView.RecyclerType
 import com.example.mybmi.recyclerView.ViewAdapter
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_history.*
 
 class HistoryFragment : Fragment() {
@@ -40,37 +40,47 @@ class HistoryFragment : Fragment() {
 
         val recyclerView = recyclerView
 //       createList()メソッドで データを取得してadapterに渡してる！
-        val adapter = ViewAdapter(createList(), object : ViewAdapter.ListListener {
-            override fun onClickRow(tappedView: View, items: ItemsOfBMI) {
-                this@HistoryFragment.onClickRow(tappedView, items)
-            }
-        }
+        val adapter = ViewAdapter(createList())
 
-
-        )
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
     }
 
 
-    private fun createList(): List<ItemsOfBMI> {
+    private fun createList(): List<RecyclerState> {
         val pref = PreferenceManager.getDefaultSharedPreferences(activity)
 //        val count = ViewAdapter(l！！！ist, listener =).getIntCo
 //        val dataList = mutableListOf<ItemsOfBMI>()
         var dao = Dao(pref)
 //        return dao.findAll().toList()
-        return dao.findAll()
+//        return dao.findAll()
+        val items = dao.findAll()
+
+
+        //ループを回す
+        val dataList = mutableListOf<RecyclerState>()
+        items.forEach {
+
+            //　if 月初めなら
+
+            //ＢＯＤＹ
+            //RecyclerStateに引数RecyclerType,ItemsOfBMIが必要
+            var data = RecyclerState(RecyclerType.BODY, it)
+
+            //if メモが入ってたら
+
+            dataList.add(data)
+        }
+
+        return dataList
     }
 
 
-    fun onClickRow(tappedView: View, rowModel: ItemsOfBMI) {
-        Snackbar.make(tappedView, "Replace with your own action tapped ${rowModel.height}", Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show()
-    }
-
-
-
+//    fun onClickRow(tappedView: View, rowModel: ItemsOfBMI) {
+//        Snackbar.make(tappedView, "Replace with your own action tapped ${rowModel.height}", Snackbar.LENGTH_LONG)
+//            .setAction("Action", null).show()
+//    }
 
 
     //    テスト＊＊＊＊＊＊＊＊＊
