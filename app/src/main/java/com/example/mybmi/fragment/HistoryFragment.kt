@@ -36,7 +36,7 @@ class HistoryFragment : Fragment() {
     //    このFragmentのViewが生成された後に呼び出されます。Viewの初期化とFragmentの状態の復元はここで行うことを推奨します。
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("lifeCycle", "りれきひょうじ")
+        Log.d("lifeCycle", "りれきひょうじするよ")
 
         val recyclerView = recyclerView
 //       createList()メソッドで データを取得してadapterに渡してる！
@@ -45,6 +45,8 @@ class HistoryFragment : Fragment() {
                 this@HistoryFragment.onClickRow(tappedView, items)
             }
         }
+
+
         )
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)

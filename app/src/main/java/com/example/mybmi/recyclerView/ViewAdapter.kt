@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mybmi.entity.ItemsOfBMI
 import com.example.mybmi.R
 import com.example.mybmi.ViewHolder
+import com.example.mybmi.entity.ListItem
 import androidx.recyclerview.widget.RecyclerView.ViewHolder as ViewHolder1
 
 //ViewHolderを生成したりに生成したViewHolderにViewModelをセットしたりする。
@@ -16,24 +17,44 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder as ViewHolder1
 class ViewAdapter(private val list: List<ItemsOfBMI>, private val listener: ListListener) :
     RecyclerView.Adapter<ViewHolder>() {
 
+/*
+adapterのひな型
+  override fun getItemViewType(position: Int): Int {
+        // 1. ヘッダーかリストアイテムかで異なる viewType を返すように実装する
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+        // 2. viewType によって読み込む layout ファイルを指定する
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+        // 3. text のセットとアイテムクリック時のイベントをセットする
+    }
+
+    override fun getItemCount(): Int {
+        return this.items.count()
+    }
+
+ */
+//    1. ヘッダーかリストアイテムかで異なる viewType を返すように実装する
+//ヘッダー用かリストアイテム用のレイアウトを返すか判別する為の viewType を返却するように設定します。
+    override fun getItemViewType(position: Int): Int {
+        return states[position].type.int
+    }
+
+
     //    テーブルのセルを作成
 //    list_itemのviewを作ってViewHolderを生成しreturn
+//    2. viewType によって読み込む layout ファイルを指定する
+//設定した viewTyep を利用してヘッダー用とリストアイテム用の Header を指定した ViewHolder を返却するようにします。
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         Log.d("Adapter", "onCreateViewHolder")
 //    fromメソッドでlayoutInflaterクラスのインスタンスを取得
 //    inflaterメソッドでビューにレイアウトXMLを適用し、指定されたcontxtからインスタンスを取得
         val rowView: View = LayoutInflater.from(parent.context).inflate(R.layout.fragment_items, parent, false)
 
-//        ＊＊＊＊＊＊＊＊＊タイプを判定してデータ格納
+//        ＊＊タイプを判定してデータ格納2. viewType によって読み込む layout ファイルを指定する
         when(RecyclerType.fromInt(viewType)){
-            RecyclerType.HEADER -> {
-                val view = RecyclerItemHeaderView(context)
-                return RecyclerItemHeaderViewHolder(view)
-            }
-            RecyclerType.FOOTER -> {
-                val view = RecyclerItemFooterView(context)
-                return RecyclerItemFooterViewHolder(view)
-            }
             RecyclerType.SECTION -> {
                 val view = RecyclerItemSectionView(context)
                 return RecyclerItemSectionViewHolder(view)
@@ -44,18 +65,7 @@ class ViewAdapter(private val list: List<ItemsOfBMI>, private val listener: List
             }
         }
 
-
-
-
-
-
-
-
-
-
-
         return ViewHolder(rowView)
-
 
 
 
@@ -65,6 +75,9 @@ class ViewAdapter(private val list: List<ItemsOfBMI>, private val listener: List
 //    指定された一にデータを表示するために呼ばれる
 //   （ positionをListのindexとして、ViewHolderに）
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+        // 3. text のセットとアイテムクリック時のイベントをセットする
+        //あとは Enum で定義した各アイテム毎に行いたいアクションを定義します。
         Log.d("Adapter", "onBindViewHolder")
         holder.dateView.text = list[position].id
         holder.heightView.text = list[position].height
@@ -79,12 +92,6 @@ class ViewAdapter(private val list: List<ItemsOfBMI>, private val listener: List
 
 
             when(viewHolder){
-                is RecyclerItemHeaderViewHolder ->{
-                    viewHolder.update(states[position])
-                }
-                is RecyclerItemFooterViewHolder ->{
-                    viewHolder.update(states[position])
-                }
                 is RecyclerItemSectionViewHolder ->{
                     viewHolder.update(states[position])
                 }
@@ -99,9 +106,7 @@ class ViewAdapter(private val list: List<ItemsOfBMI>, private val listener: List
 
 
 
-    override fun getItemViewType(position: Int): Int {
-        return states[position].type.int
-    }
+
 
 
     override fun getItemCount(): Int {
@@ -115,23 +120,3 @@ class ViewAdapter(private val list: List<ItemsOfBMI>, private val listener: List
     }
 }
 
-//2. Adapter を作成する
-//class ItemsAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-//    private val items = ListItem.values()
-//
-//    override fun getItemViewType(position: Int): Int {
-//        // 1. ヘッダーかリストアイテムかで異なる viewType を返すように実装する
-//    }
-//
-//    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
-//        // 2. viewType によって読み込む layout ファイルを指定する
-//    }
-//
-//    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
-//        // 3. text のセットとアイテムクリック時のイベントをセットする
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return this.items.count()
-//    }
-//}

@@ -13,13 +13,12 @@ data class ItemsOfBMI(
 )
 
 
-//＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+//＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊ちょ全然わかんない。これどこにつくればいいの？
+//ファイルわけするの？でもここでshaerdとかやりとりするよね？そしたらここで判別するしないのでは？
 //RecyclerAdapterでの判定で使用するenum
 enum class RecyclerType(val int: Int){
-    HEADER(0),
-    FOOTER(1),
-    SECTION(2),
-    BODY(3);
+    SECTION(0),
+    BODY(1);
 
     companion object {
         // Intからenumへの変換
@@ -29,15 +28,15 @@ enum class RecyclerType(val int: Int){
         }
     }
 }
-//1. リストで表示する Enum クラスを作成する
-enum class ListItem(val title: String) {
-    HeaderFruits(title = "果物"),
-    Apple(title = "りんご"),
-    Orange(title = "オレンジ"),
-    HeaderVegetables(title = "野菜"),
-    Carrot(title = "人参"),
-    Onion(title = "玉ねぎ"),
-    HeaderDrinks(title = "飲み物"),
-    Milk(title = "牛乳"),
-    Water(title = "水")
-}
+////1. リストで表示する Enum クラスを作成する
+//enum class ListItem(val title: String) {
+//    HeaderFruits(title = "果物"),
+//    Apple(title = "りんご"),
+//    Orange(title = "オレンジ"),
+//    HeaderVegetables(title = "野菜"),
+//    Carrot(title = "人参"),
+//    Onion(title = "玉ねぎ"),
+//    HeaderDrinks(title = "飲み物"),
+//    Milk(title = "牛乳"),
+//    Water(title = "水")
+//}

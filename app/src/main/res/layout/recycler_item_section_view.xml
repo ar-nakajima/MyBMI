@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/darker_gray">
+
+    <TextView
+            android:id="@+id/recyclerItemSectionText"
+            android:layout_width="322dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:text="月"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="20sp"
+            />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@android:color/darker_gray"/>
+
+</FrameLayout>
