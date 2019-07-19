@@ -113,16 +113,18 @@ class InputFragment : Fragment() {
         val sdf = SimpleDateFormat("yyyyMMdd")
         val id = sdf.format(Date()).toString()
 
+//        val items = ItemsOfBMI(id, height, weight, bmi, memo)
         var dao = Dao(pref)
+//        deleteメソッドでtrue（ボタン押した日のデータがある）なら、データを消す。
+
         dao.delete(id)
+//        とりあえず確定する
+        dao.flush()
+//            return@setOnClickListener
 
 //        きえないよ
 
     }
-
-
-
-
 
 //        リターンすればよい！？？
         return view

@@ -3,14 +3,14 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@android:color/darker_gray" android:id="@+id/frameLayout6">
+        android:layout_height="50dp"
+        android:background="#4792b3" android:id="@+id/frameLayout6">
 
     <TextView
             android:id="@+id/monthView"
-            android:layout_width="63dp"
-            android:layout_height="27dp"
-            android:textColor="@color/design_default_color_primary"
+            android:layout_width="42dp"
+            android:layout_height="22dp"
+            android:textColor="@android:color/background_dark"
             android:textSize="20sp"
             android:layout_marginTop="11dp"
             android:layout_marginBottom="11dp"
@@ -20,7 +20,7 @@
     <View
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:background="#7FCAF0"
+            android:background="#63CCFC"
             android:id="@+id/view4" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/monthView"/>
     <TextView
@@ -30,6 +30,6 @@
             app:layout_constraintTop_toTopOf="@+id/monthView"
             app:layout_constraintStart_toEndOf="@+id/monthView"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/monthView"/>
+            app:layout_constraintBottom_toBottomOf="@+id/monthView" android:textStyle="bold"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

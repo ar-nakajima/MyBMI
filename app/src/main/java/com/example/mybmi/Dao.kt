@@ -5,6 +5,7 @@ import android.util.Log
 import com.example.mybmi.entity.ItemsOfBMI
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+
 /*
 SharedPreferencesとは情報をAndroidデバイス内に保存する仕組みです.
 、キー・バリュー形式で1対1で保存されるだけ.保存できるデータの型はString, int, float, long, boolean, Set<String>です。
@@ -31,7 +32,7 @@ int height = preferences.getInt("HEIGHT", 150);
 
 const val KEY_ITEMS_LIST = "KEY_ITEMS_LIST"
 
-class Dao(sharedPreferences: SharedPreferences)  {
+class Dao(sharedPreferences: SharedPreferences) {
     private var itemsList = mutableSetOf<ItemsOfBMI>()
     private var pref = sharedPreferences
 
@@ -43,7 +44,7 @@ class Dao(sharedPreferences: SharedPreferences)  {
         }
     }
 
-     fun save(item: ItemsOfBMI): Boolean {
+    fun save(item: ItemsOfBMI): Boolean {
         // Idが一致するなら同一オブジェクトが存在するため保存しない
         itemsList.forEach {
             if (it?.id == item.id) return false
@@ -57,14 +58,14 @@ class Dao(sharedPreferences: SharedPreferences)  {
 //        return this.itemsList.sortedBy { it.id }
 //    }
 
-//Kotlin の List や Set はあくまで「読み取り専用」であり、「イミュータブル」ではないけど、取得したらあとは読み取るだけだから
+    //Kotlin の List や Set はあくまで「読み取り専用」であり、「イミュータブル」ではないけど、取得したらあとは読み取るだけだから
 //    問題ないよね！
     fun findAll(): List<ItemsOfBMI> {
         return this.itemsList.toList().sortedBy { it.id }
 //           itemsList = itemsList.sorted(it.id)
     }
 
-     fun findById(id: String): ItemsOfBMI? {
+    fun findById(id: String): ItemsOfBMI? {
         for (item in itemsList) {
             if (item?.id == id) return item
         }
@@ -75,7 +76,7 @@ class Dao(sharedPreferences: SharedPreferences)  {
     fun update(id: String, item: ItemsOfBMI): Boolean {
         //
         itemsList.forEach {
-            if(it?.id == id) {
+            if (it?.id == id) {
                 // Setの中にある同一要素を削除する
                 itemsList.remove(it)
                 // 引数のオブジェクトを追加する
@@ -88,21 +89,21 @@ class Dao(sharedPreferences: SharedPreferences)  {
         return false
     }
 
+    //    日付をもらって
     fun delete(id: String): Boolean {
+//    itemsOfBmiデータをとってきて、、
         itemsList.forEach {
             if (it?.id == id) {
-                // 削除対象のインデックスを取得
-                val index = itemsList.indexOf(it)
-                itemsList.drop(index)
-
-                // 削除が完了したらtrue
+                // Setの中にある同一要素を削除する
+                itemsList.remove(it)
                 return true
             }
         }
+//    その日のデータがなかったら、削除しない
         return false
     }
 
-//    確定
+    //    確定
     fun flush() {
         val editor = this.pref.edit()
         // 共有プリファレンスに現在の状態を保存する。
