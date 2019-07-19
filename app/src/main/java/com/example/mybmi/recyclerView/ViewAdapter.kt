@@ -34,11 +34,11 @@ class ViewAdapter(private val list: List<RecyclerState>) :
                     LayoutInflater.from(parent.context).inflate(R.layout.recycler_item_section_view, parent, false)
                 return SectionViewHolder(view)
             }
-
             RecyclerType.BODY -> {
                 val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item_view, parent, false)
                 return ViewHolder(view)
             }
+
         }
     }
 
@@ -52,7 +52,7 @@ class ViewAdapter(private val list: List<RecyclerState>) :
         when (holder) {
             is ViewHolder -> {
                 //BODY
-                holder.dateView.text = list[position].item.id
+                holder.dateView.text = list[position].item.id.substring(6,8)
                 holder.heightView.text = list[position].item.height
                 holder.weightView.text = list[position].item.weight
                 holder.bmiView.text = list[position].item.bmi
@@ -62,7 +62,8 @@ class ViewAdapter(private val list: List<RecyclerState>) :
             is SectionViewHolder -> {
                 // SECTION
 //                holder.monthView.text = list[position].getDate().toString()
-////                viewHolder.update(states[position])
+                holder.monthView.text = list[position].item.id.substring(4,6)
+//                viewHolder.update(states[position])
             }
         }
 

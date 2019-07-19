@@ -3,32 +3,33 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:background="@android:color/darker_gray" android:id="@+id/frameLayout6">
 
     <TextView
             android:id="@+id/monthView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="63dp"
+            android:layout_height="27dp"
             android:textColor="@color/design_default_color_primary"
             android:textSize="20sp"
-            android:layout_marginTop="11dp" app:layout_constraintStart_toEndOf="@+id/textView10"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="11dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="11dp"
             app:layout_constraintBottom_toTopOf="@+id/view4" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="166dp" android:layout_marginRight="166dp"/>
+            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"/>
 
     <View
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:background="#F778A4C2"
+            android:background="#7FCAF0"
             android:id="@+id/view4" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/monthView"/>
     <TextView
-            android:text="TextView"
+            android:text="月"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView10"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-    />
+            app:layout_constraintTop_toTopOf="@+id/monthView"
+            app:layout_constraintStart_toEndOf="@+id/monthView"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/monthView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

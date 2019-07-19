@@ -10,16 +10,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textMonth"
-            tools:layout_editor_absoluteY="94dp" tools:layout_editor_absoluteX="126dp"/>
+            app:layout_constraintBottom_toBottomOf="@+id/view2" android:layout_marginStart="22dp"
+            app:layout_constraintStart_toEndOf="@+id/monthView" android:layout_marginBottom="5dp"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/monthView"
-            tools:layout_editor_absoluteY="94dp" tools:layout_editor_absoluteX="45dp"/>
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintBottom_toBottomOf="@+id/view2" android:layout_marginStart="42dp"
+            android:layout_marginBottom="5dp"/>
     <View
-            android:layout_width="410dp"
+            android:layout_width="0dp"
             android:layout_height="33dp"
             android:id="@+id/view2"
-            android:background="#430071D4" tools:layout_editor_absoluteY="85dp" tools:layout_editor_absoluteX="3dp"/>
+            android:background="#430071D4"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="85dp" app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

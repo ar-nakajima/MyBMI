@@ -36,7 +36,7 @@ class HistoryFragment : Fragment() {
     //    このFragmentのViewが生成された後に呼び出されます。Viewの初期化とFragmentの状態の復元はここで行うことを推奨します。
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("lifeCycle", "りれきひょうじするよ")
+        Log.d("lifeCycle", "りれきひょうじするよ!!")
 
         val recyclerView = recyclerView
 //       createList()メソッドで データを取得してadapterに渡してる！
@@ -47,7 +47,6 @@ class HistoryFragment : Fragment() {
         recyclerView.adapter = adapter
     }
 
-
     private fun createList(): List<RecyclerState> {
         val pref = PreferenceManager.getDefaultSharedPreferences(activity)
 //        val count = ViewAdapter(l！！！ist, listener =).getIntCo
@@ -56,22 +55,58 @@ class HistoryFragment : Fragment() {
 //        return dao.findAll().toList()
 //        return dao.findAll()
         val items = dao.findAll()
+//ここで全件データをGETする
 
-
-        //ループを回す
+        //ループを回す！
         val dataList = mutableListOf<RecyclerState>()
+
+        //beforeMonthの初期化
+         var beforeMonth: String? = null
+
         items.forEach {
 
-            //　if 月初めなら
+            //    fun splitMonth(): Int {
+            //        return this.id.substring(4, 6).toInt()
+            //    }
+            //
+            //    fun splitDate() : Int {
+            //        return  this.id.substring(6,8).toInt()
+            //
+            //    }
 
-            //ＢＯＤＹ
+            /**　if (月初めなら)｛
+             *
+             *  //セクションを表示する
+             * sectionData = RecyclerState(RecyclerType.SECTION, it)
+             * dataList.add(sectionData)
+             * 　
+             * 　beforeMonth = ItemsOfBMI.id(月だけ)
+             *
+             * ｝
+             * */
+            //月初め　＝　月部分がソートされた前のデータと一致してない
+            // 前のデータ→何月か→idからとる
+            // 前の月　！＝　（比較したいデータ）今回のid
+
+            if (beforeMonth != it.id.substring(4,6)){
+                //セクションを表示する
+                var sectionData = RecyclerState(RecyclerType.SECTION, it)
+                dataList.add(sectionData)
+
+                beforeMonth = it.id.substring(4,6)
+
+            }
+
+
+            //ＢＯＤＹを表示する
             //RecyclerStateに引数RecyclerType,ItemsOfBMIが必要
-            var data = RecyclerState(RecyclerType.BODY, it)
+            var bodyData = RecyclerState(RecyclerType.BODY, it)
+            dataList.add(bodyData)
+
 
             //if メモが入ってたら
-
-            dataList.add(data)
         }
+
 
         return dataList
     }
@@ -84,7 +119,7 @@ class HistoryFragment : Fragment() {
 
 
     //    テスト＊＊＊＊＊＊＊＊＊
-    //    このフラグメント内でデータを取得して、adapterにセットして、holderに保持させて？
+    //    このフラグメント内でデータを取得して、adapterにセットして、holderに保持させるはず
     private fun createDataList(): List<ItemsOfBMI> {
 
         val dataList = mutableListOf<ItemsOfBMI>()

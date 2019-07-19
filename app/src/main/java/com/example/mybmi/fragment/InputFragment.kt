@@ -74,6 +74,7 @@ class InputFragment : Fragment() {
             /* 日付の取得 */
             val sdf = SimpleDateFormat("yyyyMMdd")
             val id = sdf.format(Date()).toString()
+
             // 入力欄の文字列取得
             var height = height.text.toString()
             var weight = weight.text.toString()

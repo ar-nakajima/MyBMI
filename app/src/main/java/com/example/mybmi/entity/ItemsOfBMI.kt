@@ -13,15 +13,6 @@ data class ItemsOfBMI(
     val bmi: String= "",
 //    メモ
     val memo: String?= ""
-) {
-    fun getMonth(): Int {
-        return this.id.substring(4, 6).toInt()
-    }
-
-    fun getDate() : Int {
-        return  this.id.substring(6,8).toInt()
-
-    }
-}
+)
 
 

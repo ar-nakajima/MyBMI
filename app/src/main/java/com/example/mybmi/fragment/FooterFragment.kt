@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import com.example.mybmi.R
 import kotlinx.android.synthetic.main.fragment_footer.*
 
-@Suppress("UNREACHABLE_CODE")
 class FooterFragment : Fragment() {
 
     override fun onCreateView(
